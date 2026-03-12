@@ -1,0 +1,153 @@
+{
+  "info": {
+    "name": "Legal Case Management API",
+    "description": "Complete API collection for Online Legal Case & Lawyer Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Province",
+      "item": [
+        {
+          "name": "Get All Provinces",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/provinces"
+          }
+        },
+        {
+          "name": "Create Province",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/provinces",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Western Province\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "District",
+      "item": [
+        {
+          "name": "Get All Districts",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/districts"
+          }
+        },
+        {
+          "name": "Create District",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/districts",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Colombo\",\n  \"province\": {\"id\": 1}\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Client",
+      "item": [
+        {
+          "name": "Get All Clients",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/clients"
+          }
+        },
+        {
+          "name": "Register Client",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/clients",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"0771234567\",\n  \"address\": \"123 Main St\",\n  \"district\": {\"id\": 1}\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Lawyer",
+      "item": [
+        {
+          "name": "Get All Lawyers",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/lawyers"
+          }
+        },
+        {
+          "name": "Register Lawyer",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/lawyers",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Smith\",\n  \"email\": \"jane@lawfirm.com\",\n  \"phone\": \"0779876543\",\n  \"specialization\": \"Criminal Law\",\n  \"licenseNumber\": \"LAW12345\",\n  \"district\": {\"id\": 1}\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Legal Case",
+      "item": [
+        {
+          "name": "Get All Cases",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/cases"
+          }
+        },
+        {
+          "name": "Register Case",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/cases",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"caseNumber\": \"CASE-2024-001\",\n  \"title\": \"Property Dispute\",\n  \"description\": \"Land ownership dispute\",\n  \"caseType\": \"Civil\",\n  \"status\": \"Open\",\n  \"filingDate\": \"2024-01-15\",\n  \"hearingDate\": \"2024-02-20\",\n  \"client\": {\"id\": 1}\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Case Assignment",
+      "item": [
+        {
+          "name": "Get All Assignments",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8080/api/assignments"
+          }
+        },
+        {
+          "name": "Assign Lawyer to Case",
+          "request": {
+            "method": "POST",
+            "url": "http://localhost:8080/api/assignments",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"legalCase\": {\"id\": 1},\n  \"lawyer\": {\"id\": 1},\n  \"assignedDate\": \"2024-01-16\",\n  \"role\": \"Lead Attorney\",\n  \"status\": \"Active\"\n}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
